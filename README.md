@@ -16,23 +16,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://synthrad2023.grand-challenge.org/">
+  <a href="https://SynthRAD2025.grand-challenge.org/">
     <img src="./SynthRAD_banner.png" alt="Logo" width="770" height="160">
   </a>
 
 
   <p align="center">
     Preparing the metrics for evaluation of 
-<a href="https://synthrad2023.grand-challenge.org/"><strong>SynthRAD2023 Grand Challenge</strong></a>
+<a href="https://SynthRAD2025.grand-challenge.org/"><strong>SynthRAD2025 Grand Challenge</strong></a>
   <br />
-    <a href="https://github.com/SynthRAD2023/metrics"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/SynthRAD2025/metrics"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SynthRAD2023/metrics">View Demo</a>
+    <a href="https://github.com/SynthRAD2025/metrics">View Demo</a>
     ·
-    <a href="https://github.com/SynthRAD2023/metrics/issues">Report Bug</a>
+    <a href="https://github.com/SynthRAD2025/metrics/issues">Report Bug</a>
     ·
-    <a href="https://github.com/SynthRAD2023/metrics/issues">Request Feature</a>
+    <a href="https://github.com/SynthRAD2025/metrics/issues">Request Feature</a>
   </p>
 </p>
 
@@ -58,7 +58,7 @@
 ## Goal
 
 Assess the quality of the synthetic computed tomography (sCT) images
-against CT. N.B. At the moment only the image similarity metrics are usable. Dose metrics will be updated when the validation phase is open.
+against CT. A brief description of the metrics can be found at: [https://synthrad2025.grand-challenge.org/metrics-ranking/](https://synthrad2025.grand-challenge.org/metrics-ranking/).
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -70,11 +70,11 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
 ```sh
-git clone https://github.com/SynthRAD2023/metrics.git
+git clone https://github.com/SynthRAD2025/metrics.git
 ```
 or
 ```sh
-git clone git@github.com:SynthRAD2023/metrics.git
+git clone git@github.com:SynthRAD2025/metrics.git
 ```
 
 ### Prerequisites
@@ -109,7 +109,7 @@ In general, any function can be used in the following way.
 
 All metrics can be computed by using the `score_patient`, which loads the data and returns all metrics:
 
-**Image metrics**
+**Image similarity**
 ``` 
     metrics = ImageMetrics()
     ground_truth_path = "path/to/ground_truth.mha"
@@ -118,7 +118,16 @@ All metrics can be computed by using the `score_patient`, which loads the data a
     print(metrics.score_patient(ground_truth_path, predicted_path, mask_path))
 ```
 
-**Dose metrics**
+**Geometry consistency**
+``` 
+    metrics = GeometryMetrics()
+    ground_truth_path = "path/to/ground_truth.mha"
+    predicted_path = "path/to/prediction.mha"
+    mask_path = "path/to/mask.mha"
+    print(metrics.score_patient(ground_truth_path, predicted_path, mask_path))
+```
+
+**Dose evaluation**
 ``` 
     dose_path = 'path/to/treatment_plans'
     predicted_path = "path/to/prediction.mha"
@@ -131,7 +140,7 @@ All metrics can be computed by using the `score_patient`, which loads the data a
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/SynthRAD2023/metrics/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/SynthRAD2025/metrics/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -152,9 +161,10 @@ Distributed under the GNU General Public License v3.0. See `LICENSE` for more in
 <!-- CONTACT -->
 ## Contact
 
+Maarten Terpstra - M.L.Terpstra-5@umcutrecht.nl
 Matteo Maspero - [@matteomasperonl](https://twitter.com/matteomasperonl) - m.maspero@umcutrecht.nl
 
-Project Link: [https://github.com/SynthRAD2023/metrics](https://github.com/SynthRAD2023/metrics)
+Project Link: [https://github.com/SynthRAD2025/metrics](https://github.com/SynthRAD2025/metrics)
 
 
 <!-- ACKNOWLEDGEMENTS 
@@ -168,13 +178,13 @@ Project Link: [https://github.com/SynthRAD2023/metrics](https://github.com/Synth
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/
 #reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/SynthRAD2023/repo.svg?style=flat-square
-[contributors-url]: https://github.com/SynthRAD2023/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/SynthRAD2023/repo.svg?style=flat-square
-[forks-url]: https://github.com/SynthRAD2023/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/SynthRAD2023/repo.svg?style=flat-square
-[stars-url]: https://github.com/SynthRAD2023/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/SynthRAD2023/repo.svg?style=flat-square
-[issues-url]: https://github.com/SynthRAD2023/repo/issues
-[license-shield]: https://img.shields.io/github/license/SynthRAD2023/repo.svg?style=flat-square
-[license-url]: https://github.com/SynthRAD2023/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/SynthRAD2025/repo.svg?style=flat-square
+[contributors-url]: https://github.com/SynthRAD2025/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/SynthRAD2025/repo.svg?style=flat-square
+[forks-url]: https://github.com/SynthRAD2025/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/SynthRAD2025/repo.svg?style=flat-square
+[stars-url]: https://github.com/SynthRAD2025/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/SynthRAD2025/repo.svg?style=flat-square
+[issues-url]: https://github.com/SynthRAD2025/repo/issues
+[license-shield]: https://img.shields.io/github/license/SynthRAD2025/repo.svg?style=flat-square
+[license-url]: https://github.com/SynthRAD2025/repo/blob/master/LICENSE.txt
