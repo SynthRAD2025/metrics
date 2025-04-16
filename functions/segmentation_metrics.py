@@ -49,24 +49,17 @@ class SegmentationMetrics():
         }
 
     
-    def score_patient(self, synthetic_ct_location, mask, gt_segmentation, patient_id, orientation=None):        
+    def score_patient(self, gt_segmentation, sct_segmentation, mask, patient_id, orientation=None):        
         # Calculate segmentation metrics
         # Perform segmentation using TotalSegmentator, enforce the orientation of the ground-truth on the output
 
         anatomy = patient_id[1:3].upper()
-        with torch.no_grad():
-            pred_seg=self.my_ts.score_patient(synthetic_ct_location, orientation)
 
-        # Retrieve the data in the NiftiImage from nibabel
-        if isinstance(pred_seg, Nifti1Image):
-            pred_seg = np.array(pred_seg.get_fdata())
-
-
-        assert pred_seg.shape == gt_segmentation.shape
+        assert sct_segmentation.shape == gt_segmentation.shape
 
         # Convert to PyTorch tensors for MONAI
         gt_seg = gt_segmentation.cpu().detach() if torch.is_tensor(gt_segmentation) else torch.from_numpy(gt_segmentation).cpu().detach()
-        pred_seg = pred_seg.cpu().detach() if torch.is_tensor(pred_seg) else torch.from_numpy(pred_seg).cpu().detach()
+        pred_seg = sct_segmentation.cpu().detach() if torch.is_tensor(sct_segmentation) else torch.from_numpy(sct_segmentation).cpu().detach()
 
 
         assert gt_seg.shape == pred_seg.shape
