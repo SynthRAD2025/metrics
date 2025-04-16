@@ -1,0 +1,8 @@
+SimpleITK
+numpy
+torch
+monai
+h5py
+scikit-image
+scipy
+nibabel
