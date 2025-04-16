@@ -9,7 +9,6 @@ import torch
 import SimpleITK
 from monai.metrics import DiceMetric, HausdorffDistanceMetric
 from nibabel.nifti1 import Nifti1Image
-from ts_utils import MinialTotalSegmentator
 
 class SegmentationMetrics():
     def __init__(self, debug=False):
