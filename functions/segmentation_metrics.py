@@ -25,21 +25,28 @@ class SegmentationMetrics():
                 6, # stomach
                 *range(10, 14+1), #lungs
                 *range(26, 50+1), #vertebrae
+                51, #heart
                 79, # spinal cord
                 *range(92, 115+1), # ribs
                 116 #sternum
             ],
             "HN": [
+                15, # esophagus
+                16, # trachea
+                17, # thyroid
                 *range(26, 50+1), #vertebrae
                 79, #spinal cord
                 90, # brain
                 91, # skull
             ],
             "TH": [
+                2, # kidney right
+                3, # kidney left
                 5, # liver
                 6, # stomach
                 *range(10, 14+1), #lungs
                 *range(26, 50+1), #vertebrae
+                51, #heart
                 79, # spinal cord
                 *range(92, 115+1), # ribs
                 116 #sternum
