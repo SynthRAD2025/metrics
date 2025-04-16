@@ -90,7 +90,8 @@ pip install -r requirements.txt
 
 The metrics are computed in two files: `image_metrics.py` and `dose_metrics.py`.
 These compute respectively,
-* The image similarity between the ground-truth CT and the synthetic CT. Thes metrics include the mean squared error (MSE), peak signal to noise ratio (PSNR), and structural similarity (SSIM).
+* The image similarity between the ground-truth CT and the synthetic CT. Thes metrics include the mean squared error (MSE), peak signal to noise ratio (PSNR), and multiscale structural similarity (MS-SSIM).
+* The segmentation metrics evaluate the geometric accuracy between the ground-truth CT and synthetic CT. They compute the DICE and 95th percentile Hausdorff distance (HD95) between a ground-truth segmentation set and segmentations estimated from synthetic CTs. The weights and implementations of the TotalSegmentator model are archived and illustrated in the [evaluation](https://github.com/SynthRAD2025/evaluation/) repository.
 * The metrics to compare the dose delivered to the ground truth and the synthetic CT. These metrics include the mean absolute dose (MAE), a dose-volume histogram (DVH) metric, and the gamma pass rate. 
 
 
@@ -120,7 +121,7 @@ All metrics can be computed by using the `score_patient`, which loads the data a
 
 **Geometry consistency**
 ``` 
-    metrics = GeometryMetrics()
+    metrics = SegmentationMetrics()
     ground_truth_path = "path/to/ground_truth.mha"
     predicted_path = "path/to/prediction.mha"
     mask_path = "path/to/mask.mha"
